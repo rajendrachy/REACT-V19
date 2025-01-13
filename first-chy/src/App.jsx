@@ -47,6 +47,81 @@ export const App = () => {
 
 
 //------------------- Components -> Always Start with a Capital letter---------------------------------
+// const Netflix = () => {
+//   return (
+//     <div>
+
+//       <div>
+//         <img src="images.jpeg" alt="images.jpeg"
+//           width="100%" height="10%" />
+//       </div>
+//       <h2>Name: Queen of Tears</h2>
+//       <h3>Rating: 8.2</h3>
+//       <p>This is called </p>
+//     </div>
+//   );
+// }
+
+
+
+
+
+
+// ------------------Using a JSX Variable---------------------------------
+
+// const Netflix = () => {
+//   const name = "Queen of Tears";
+//   const Rating = "8.2";
+//   const Summary = "This is called";
+
+//   return (
+//     <div>
+
+//       <div>
+//         <img src="images.jpeg" alt="images.jpeg"
+//           width="100%" height="10%" />
+//       </div>
+//       <h2>{name}</h2>
+//       <h3>{Rating}</h3>
+//       <p>{Summary}</p>
+//     </div>
+//   );
+// }
+
+
+
+
+
+// ----------------Using a JSX Expression--------------------------
+
+// const Netflix = () => {
+//   return (
+//     <div>
+
+//       <div>
+//         <img src="images.jpeg" alt="images.jpeg"
+//           width="100%" height="10%" />
+//       </div>
+//       <h2>Name: Queen of Tears</h2>
+//       <h3>Rating: {18 / 3.2}</h3>
+//       <p>This is called </p>
+//     </div>
+//   );
+// }
+
+
+
+
+
+// -----------------Using a function call-------------------------
+
+
+const returnGenre = () => {
+const genre = "RomCom";
+return genre;
+};
+
+
 const Netflix = () => {
   return (
     <div>
@@ -56,10 +131,12 @@ const Netflix = () => {
           width="100%" height="10%" />
       </div>
       <h2>Name: Queen of Tears</h2>
-      <h3>Rating: 8.2</h3>
+      <h3>Rating: {18 / 3.2}</h3>
       <p>This is called </p>
+      <p>Genre: {returnGenre()}</p>
+
     </div>
   );
-}
+};
 
 
