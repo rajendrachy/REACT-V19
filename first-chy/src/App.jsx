@@ -116,27 +116,129 @@ export const App = () => {
 // -----------------Using a function call-------------------------
 
 
-const returnGenre = () => {
-const genre = "RomCom";
-return genre;
-};
+// const returnGenre = () => {
+// const genre = "RomCom";
+// return genre;
+// };
 
 
-const Netflix = () => {
-  return (
-    <div>
+// const Netflix = () => {
+//   return (
+//     <div>
+//       <div>
+//         <img src="images.jpeg" alt="images.jpeg"
+//           width="100%" height="10%" />
+//       </div>
+//       <h2>Name: Queen of Tears</h2>
+//       <h3>Rating: {18 / 3.2}</h3>
+//       <p>This is called </p>
+//       <p>Genre: {returnGenre()}</p>
+//       <button>Watch Now</button>
+//     </div>
+//   );
+// };
 
-      <div>
-        <img src="images.jpeg" alt="images.jpeg"
-          width="100%" height="10%" />
-      </div>
-      <h2>Name: Queen of Tears</h2>
-      <h3>Rating: {18 / 3.2}</h3>
-      <p>This is called </p>
-      <p>Genre: {returnGenre()}</p>
-
-    </div>
-  );
-};
 
 
+
+
+//-----------------LAC 10-------------------------------------
+//-------------- first solution--------------------------
+// const returnGenre = () => {
+//   const genre = "RomCom";
+//   return genre;
+//   };
+  
+
+// let age = 17;
+
+  
+//   const Netflix = () => {
+
+//     if(age < 18) {
+//       return (
+//         <div>
+//         <div>
+//           <img src="images.jpeg" alt="images.jpeg"
+//             width="100%" height="10%" />
+//         </div>
+//         <h2>Name: Queen of Tears</h2>
+//         <h3>Rating: {18 / 3.2}</h3>
+//         <p>This is called </p>
+//         <p>Genre: {returnGenre()}</p>
+//         <button>Not Available</button>
+//       </div>
+//       )
+//     }
+
+//     return (
+//       <div>
+//         <div>
+//           <img src="images.jpeg" alt="images.jpeg"
+//             width="100%" height="10%" />
+//         </div>
+//         <h2>Name: Queen of Tears</h2>
+//         <h3>Rating: {18 / 3.2}</h3>
+//         <p>This is called </p>
+//         <p>Genre: {returnGenre()}</p>
+//         <button>Watch Now</button>
+//       </div>
+//     );
+//   };
+  
+
+  // ------------Second solution---------------------
+
+  // const returnGenre = () => {
+  //   const genre = "RomCom";
+  //   return genre;
+  //   };
+    
+  //   let age = 20;
+
+  //   const Netflix = () => {
+  //     return (
+  //       <div>
+  //         <div>
+  //           <img src="images.jpeg" alt="images.jpeg"
+  //             width="100%" height="10%" />
+  //         </div>
+  //         <h2>Name: Queen of Tears</h2>
+  //         <h3>Rating: {18 / 3.2}</h3>
+  //         <p>This is called </p>
+  //         <p>Genre: {returnGenre()}</p>
+  //         <button>{age>=18 ? "Watch Now": "Not Available"}</button>
+  //       </div>
+  //     );
+  //   };
+
+
+
+
+
+  //-------------------Third Solution------------------
+  const returnGenre = () => {
+    const genre = "RomCom";
+    return genre;
+    };
+    
+    let age = 20;
+
+    const Netflix = () => {
+      return (
+        <div>
+          <div>
+            <img src="images.jpeg" alt="images.jpeg"
+              width="100%" height="10%" />
+          </div>
+          <h2>Name: Queen of Tears</h2>
+          <h3>Rating: {18 / 3.2}</h3>
+          <p>This is called </p>
+          <p>Genre: {returnGenre()}</p>
+          <button>{age>=18 ? "Watch Now": "Not Available"}</button>
+        </div>
+      );
+    };
+    
+
+    
