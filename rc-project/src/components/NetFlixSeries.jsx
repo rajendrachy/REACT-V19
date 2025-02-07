@@ -28,6 +28,7 @@ import React from "react"; // -> No need to write NOW
   // </div>
  // );
 
+ 
 
 // ----While doing this we should -> import React from "react";---------
 // <React.Fragment> -> In place of this we can simply use => <> </>
@@ -164,4 +165,7 @@ export const Footer = () => {
 export const Header = () => {
     return <h2>NEXFLIX.COM</h2>
 }
+
+
+
 
