@@ -254,3 +254,255 @@
 // Install -> npm i react-icons
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+//-------------------To-DO-APP-----------------------------------------
+// already done in prashant sir video
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//------------------------UseState Challenge----------------------------
+// import React, { useState } from "react";
+// import './App.css';
+// import { Heading } from "./useStateChallenge/Heading";
+
+// export function App() {
+//     const [count, setCount]  = useState(0); // default value 0
+//     const [step, setStep] = useState(1); // default value 1
+//     const handleIncrement = () => {
+//         setCount(count + step);
+//     }
+
+//     const handleDecremant = () => {
+//         setCount(count-step);
+//     }
+
+//     const handleReset = () => {
+//         setCount(0);
+//         setStep(1); // Reset Step to 1
+//     }
+//     return (
+//         <center className="div">
+
+//         <Heading />
+//         <p style={{color:'blue'}}>Count: {count}</p>
+//          <p>Steps: <input type="number" 
+//          value={step} 
+//          onChange={(e) => setStep(Number(e.target.value) || 1)}
+//          /></p>
+//          <button className="btn" onClick={handleIncrement}>Increment</button>
+//          <button className="btn" onClick={handleDecremant}>Decrement</button>
+//          <button className="btn" onClick={handleReset}>Reset</button>
+//         </center>
+//     )
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+//-------------------Controlled and Uncontrolled-----------------------
+// import { Heading } from "./controlledUncontrolled/Heading"
+
+// export function App() {
+//     return (
+//         <div>
+//             <Heading />
+//         </div>
+//     )
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//---------------------Registration Form---------------------------
+//YT -> https://www.youtube.com/watch?v=0_mxKjl9Emc
+// import { Heading } from "./basicFormHandling/Heading"
+// import React from "react";
+// import { useState } from "react";
+
+// export function App() {
+//   const[name, setName] = useState("");
+//   const[tnc, setTnc] = useState(false);
+//   const[interest, setInterest] = useState("");
+//   const [submittedData, setSubmittedData] = useState(null);
+
+//     function getFormData(e) {
+//         e.preventDefault();
+//         //console.warn(name, tnc, interest);
+//         setSubmittedData({name, interest, tnc});
+//     }
+
+   
+
+//     return (
+//         <>
+//        <Heading />
+//        <form action="" onSubmit={getFormData}>
+//         <input type="text" placeholder="Enter name: " required
+//         value= {name} onChange={(e) => setName(e.target.value)}/> <br></br> <br></br>
+//         <select onChange={(e) => setInterest(e.target.value)}>
+//             <option >Select Option</option>
+//             <option>Marval</option>
+//             <option>Dc</option>
+//         </select>
+//         <br></br> <br></br>
+
+//         <input type="checkbox" onChange={(e) => setTnc(e.target.checked)}/> <span>Accept Terms and conditions</span>
+//         <br></br> <br></br>
+//         <button type="submit">Submit</button>
+//        </form>
+
+
+
+// {submittedData && (
+//  <div>
+//  <p >Name:{submittedData.name}</p>
+ 
+//  <p>Interest:{submittedData.interest}</p>
+//  <p>Accept:{submittedData.tnc ? "Yes":"No"}</p>
+// </div>
+// )}
+//  </>
+//     )
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+//--------------------Login Form----------------------------
+// import { Heading } from "./logInForm/Heading"
+
+// export function App() {
+//     return (
+//         <>
+//         <Heading />
+//         </>
+//     )
+// }
+
+
+
+
+
+// import React, { useState } from "react";
+
+// export function App() {
+//   const [username, setUsername] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [showPassword, setShowPassword] = useState(false);
+//   const [submittedData, setSubmittedData] = useState(null);
+
+//   function handleSubmit(e) {
+//     e.preventDefault();
+//     if (username === "" || password === "") {
+//       alert("Please fill in all fields!");
+//       return;
+//     }
+//     setSubmittedData({ username, password });
+//     setUsername("");
+//     setPassword("");
+//   }
+
+//   return (
+//     <div style={{ textAlign: "center", marginTop: "50px" }}>
+//       <h2>Login Form</h2>
+//       <form onSubmit={handleSubmit} style={{ display: "inline-block", textAlign: "left" }}>
+//         <label>Username:</label>
+//         <input
+//           type="text"
+//           placeholder="Enter username"
+//           value={username}
+//           onChange={(e) => setUsername(e.target.value)}
+//           required
+//           style={{ display: "block", marginBottom: "10px", padding: "5px", width: "100%" }}
+//         />
+
+//         <label>Password:</label>
+//         <input
+//           type={showPassword ? "text" : "password"}
+//           placeholder="Enter password"
+//           value={password}
+//           onChange={(e) => setPassword(e.target.value)}
+//           required
+//           style={{ display: "block", marginBottom: "10px", padding: "5px", width: "100%" }}
+//         />
+
+//         <label>
+//           <input
+//             type="checkbox"
+//             onChange={() => setShowPassword(!showPassword)}
+//           /> Show Password
+//         </label>
+//         <br />
+//         <button type="submit" style={{ marginTop: "10px", padding: "8px", width: "100%" }}>
+//           Login
+//         </button>
+//       </form>
+
+//       {submittedData && (
+//         <div style={{ marginTop: "20px" }}>
+//           <h3>Login Details:</h3>
+//           <p>Username: {submittedData.username}</p>
+//           <p>Password: {submittedData.password}</p>
+//         </div>
+//       )}
+
+//     </div>
+//   );
+// }
+
+
