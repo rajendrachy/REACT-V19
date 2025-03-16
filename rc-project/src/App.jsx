@@ -506,3 +506,55 @@
 // }
 
 
+
+
+
+
+
+
+
+
+//-------------------uSErEFhOOK------------------------------
+import { useRef, useState } from "react";
+import { Heading } from "./useRefHook/Heading";
+
+export function App() {
+    const username = useRef(null);
+    const password = useRef(null);
+    const [submittedData, setSubmittedData] = useState(null);
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        setSubmittedData({
+            username: username.current.value,
+            password: password.current.value,  
+        });
+
+        username.current.value = "";
+        password.current.value = "";
+    };
+
+
+    return (
+        <div>
+            <Heading />
+
+            <form onSubmit={handleFormSubmit}>
+                <input type="text" placeholder="Enter Username: " ref={username} /><br /><br />
+                <input type="text" placeholder="Enter Password: " ref={password} /><br /><br />
+                <button>Submit</button>
+            </form>
+
+            {submittedData && (
+                <div>
+                    <h3>Submitted Data:</h3>
+                    <p><strong>Username:</strong> {submittedData.username}</p>
+                    <p><strong>Password:</strong> {submittedData.password}</p>
+                </div>
+            )}
+
+        </div>
+    );
+}
+
+
