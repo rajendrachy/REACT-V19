@@ -195,8 +195,62 @@
 
 
 
+
+
+
+
+
+
+
+
 //----------------------LiftState in React Js-----------------------------
 
+// import './App.css';
+// import { LiftState } from './liftStateUp/LiftStateUp';
 
+// export function App() {
+//     return (
+//         <div>
+//             <h2>Lift State Up</h2>
+//             <LiftState />
+//         </div>
+//     )
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//----------------------Toggle Switch----------------------------------
+// import { ToggleSwitch } from "./toggleSwitch/ToggleSwitch"
+
+// export function App() {
+//     return (
+//         <div> 
+//            <ToggleSwitch />
+//         </div>
+//     )
+// }
+
+
+
+
+
+
+
+
+
+
+
+//----------------React Icons----------------------
+// Install -> npm i react-icons
 
 
