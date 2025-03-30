@@ -24,6 +24,9 @@
 
 
 
+
+
+
 //---------------------CSS Modules-----------------------------
 
 // import './App.css';
@@ -86,7 +89,7 @@
 
 
 
-//--------------React js stste challenge----------------------------
+//--------------React js state challenge----------------------------
 // const users = [
 //   {name:"Alice", age: 25},
 //   {name:"Bob", age: 30},
@@ -147,6 +150,10 @@
 //     </div>
 //   )
 // }
+
+
+
+
 
 
 
@@ -337,6 +344,7 @@
 
 
 
+
 //-------------------Controlled and Uncontrolled-----------------------
 // import { Heading } from "./controlledUncontrolled/Heading"
 
@@ -360,8 +368,12 @@
 
 
 
+
+
+
 //---------------------Registration Form---------------------------
 //YT -> https://www.youtube.com/watch?v=0_mxKjl9Emc
+
 // import { Heading } from "./basicFormHandling/Heading"
 // import React from "react";
 // import { useState } from "react";
@@ -411,6 +423,212 @@
 //  </>
 //     )
 // }
+
+
+
+
+
+// --------------form submition on table in Local Storage------------------
+// import { Heading } from "./basicFormHandling/Heading";
+// import React, { useState, useEffect } from "react";
+
+// export function App() {
+//   const [name, setName] = useState("");
+//   const [tnc, setTnc] = useState(false);
+//   const [interest, setInterest] = useState("");
+//   const [submittedData, setSubmittedData] = useState(() => {
+//     const savedData = localStorage.getItem("formData");
+//     return savedData ? JSON.parse(savedData) : [];
+//   });
+
+//   useEffect(() => {
+//     localStorage.setItem("formData", JSON.stringify(submittedData));
+//   }, [submittedData]);
+
+//   function getFormData(e) {
+//     e.preventDefault();
+//     const newData = { name, interest, tnc };
+//     setSubmittedData([...submittedData, newData]);
+//     setName("");
+//     setInterest("");
+//     setTnc(false);
+//   }
+
+//   return (
+//     <>
+//       <Heading />
+//       <form onSubmit={getFormData}>
+//         <input
+//           type="text"
+//           placeholder="Enter name: "
+//           required
+//           value={name}
+//           onChange={(e) => setName(e.target.value)}
+//         />
+//         <br /> <br />
+//         <select value={interest} onChange={(e) => setInterest(e.target.value)}>
+//           <option value="">Select Option</option>
+//           <option>Marvel</option>
+//           <option>DC</option>
+//         </select>
+//         <br /> <br />
+//         <input type="checkbox" checked={tnc} onChange={(e) => setTnc(e.target.checked)} />
+//         <span>Accept Terms and Conditions</span>
+//         <br /> <br />
+//         <button type="submit">Submit</button>
+//       </form>
+
+//       {submittedData.length > 0 && (
+//         <table border="1" cellPadding="5" style={{ marginTop: "20px" }}>
+//           <thead>
+//             <tr>
+//               <th>Name</th>
+//               <th>Interest</th>
+//               <th>Accepted Terms</th>
+//             </tr>
+//           </thead>
+//           <tbody>
+//             {submittedData.map((data, index) => (
+//               <tr key={index}>
+//                 <td>{data.name}</td>
+//                 <td>{data.interest}</td>
+//                 <td>{data.tnc ? "Yes" : "No"}</td>
+//               </tr>
+//             ))}
+//           </tbody>
+//         </table>
+//       )}
+//     </>
+//   );
+// }
+
+
+
+//---------------practice------------------------
+// import { Heading } from "./basicFormHandling/Heading";
+// import React, { useState, useEffect } from "react";
+
+// export function App() {
+//   const [id, setId] = useState("");
+//   const [name, setName] = useState("");
+//   const [submittedData, setSubmittedData] = useState(() => {
+//     const savedData = localStorage.getItem("formData");
+//     return savedData ? JSON.parse(savedData) : [];
+//   });
+
+//   useEffect(() => {
+//     localStorage.setItem("formData", JSON.stringify(submittedData));
+//   }, [submittedData]);
+
+//   function handleSubmit(e) {
+//     e.preventDefault();
+//     const newData = { id, name };
+//     setSubmittedData([...submittedData, newData]);
+//     setId("");
+//     setName("");
+//   }
+
+//   return (
+//     <>
+//       <Heading />
+//       <form onSubmit={handleSubmit}>
+//         <input
+//           type="text"
+//           placeholder="Enter ID: "
+//           required
+//           value={id}
+//           onChange={(e) => setId(e.target.value)}
+//         />
+//         <br /> <br />
+//         <input
+//           type="text"
+//           placeholder="Enter Name: "
+//           required
+//           value={name}
+//           onChange={(e) => setName(e.target.value)}
+//         />
+//         <br /> <br />
+//         <button type="submit">Submit</button>
+//       </form>
+
+//       {submittedData.length > 0 && (
+//         <table border="1" cellPadding="5" style={{ marginTop: "20px" }}>
+//           <thead>
+//             <tr>
+//               <th>ID</th>
+//               <th>Name</th>
+//             </tr>
+//           </thead>
+//           <tbody>
+//             {submittedData.map((data, index) => (
+//               <tr key={index}>
+//                 <td>{data.id}</td>
+//                 <td>{data.name}</td>
+//               </tr>
+//             ))}
+//           </tbody>
+//         </table>
+//       )}
+//     </>
+//   );
+// }
+
+
+
+
+
+
+
+
+
+import React, { useState, useEffect } from "react";
+
+export function App() {
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+        const uniqueCategories = [...new Set(data.map((item) => item.category))];
+        setCategories(uniqueCategories);
+      });
+  }, []);
+
+  const filteredProducts = selectedCategory
+    ? products.filter((product) => product.category === selectedCategory)
+    : products;
+
+  return (
+    <div>
+      <h2>Product Store</h2>
+      <select onChange={(e) => setSelectedCategory(e.target.value)}>
+        <option value="">All Categories</option>
+        {categories.map((category, index) => (
+          <option key={index} value={category}>{category}</option>
+        ))}
+      </select>
+
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", marginTop: "20px" }}>
+        {filteredProducts.map((product) => (
+          <div key={product.id} style={{ border: "1px solid #ccc", padding: "10px", width: "200px" }}>
+            <img src={product.image} alt={product.title} width="100" />
+            <h4>{product.title}</h4>
+            <p>Category: {product.category}</p>
+            <p>Price: ${product.price}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+
+
+
 
 
 
@@ -514,47 +732,205 @@
 
 
 
-//-------------------uSErEFhOOK------------------------------
-import { useRef, useState } from "react";
-import { Heading } from "./useRefHook/Heading";
-
-export function App() {
-    const username = useRef(null);
-    const password = useRef(null);
-    const [submittedData, setSubmittedData] = useState(null);
-
-    const handleFormSubmit = (e) => {
-        e.preventDefault();
-        setSubmittedData({
-            username: username.current.value,
-            password: password.current.value,  
-        });
-
-        username.current.value = "";
-        password.current.value = "";
-    };
 
 
-    return (
-        <div>
-            <Heading />
 
-            <form onSubmit={handleFormSubmit}>
-                <input type="text" placeholder="Enter Username: " ref={username} /><br /><br />
-                <input type="text" placeholder="Enter Password: " ref={password} /><br /><br />
-                <button>Submit</button>
-            </form>
+//-------------------useRefHook------------------------------
+// import { useRef, useState } from "react";
+// import { Heading } from "./useRefHook/Heading";
 
-            {submittedData && (
-                <div>
-                    <h3>Submitted Data:</h3>
-                    <p><strong>Username:</strong> {submittedData.username}</p>
-                    <p><strong>Password:</strong> {submittedData.password}</p>
-                </div>
-            )}
+// export function App() {
+//     const username = useRef(null);
+//     const password = useRef(null);
+//     const [submittedData, setSubmittedData] = useState(null);
 
-        </div>
-    );
-}
+//     const handleFormSubmit = (e) => {
+//         e.preventDefault();
+//         setSubmittedData({
+//             username: username.current.value,
+//             password: password.current.value,  
+//         });
+
+//         username.current.value = "";
+//         password.current.value = "";
+//     };
+
+
+//     return (
+//         <div>
+//             <Heading />
+//             <form onSubmit={handleFormSubmit}>
+//                 <input type="text" placeholder="Enter Username: " ref={username} /><br /><br />
+//                 <input type="text" placeholder="Enter Password: " ref={password} /><br /><br />
+//                 <button>Submit</button>
+//             </form>
+
+
+//             {submittedData && (
+//                 <div>
+//                     <h3>Submitted Data:</h3>
+//                     <p><strong>Username:</strong> {submittedData.username}</p>
+//                     <p><strong>Password:</strong> {submittedData.password}</p>
+//                 </div>
+//             )};
+//         </div>
+//     );
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//----------------------------useld Hook------------------------
+// lac -> 63
+// import { Heading } from "./useldHook/Heading"
+
+// export function App() {
+//     return (
+//         <>
+//        <Heading/>
+//         </>
+//     )
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//------------------------Dropdown-------------------------
+// import { Heading } from "./LABDROPDOWN/Heading";
+// import { useState } from "react";
+
+// export function App() {
+//     const [selectedValue, setSelectedValue] = useState("");
+
+//     const products = {
+        
+//         juice: { id: 1, name: "Juice" , price:"rs. 200", image: "juice.jpeg"},
+//         Banana: { id: 2, name: "Banana" , price:"rs. 100", image: "juice.jpeg"},
+//         apple: { id: 3, name: "Apple" ,  price:"rs. 200", image:"juice.jpeg"},
+//     };
+
+
+//     const selectedProduct = products[selectedValue];
+
+
+//     return (
+//         <>
+//             <Heading />
+//             <select id="product" value={selectedValue} onChange={(e) => setSelectedValue(e.target.value)}>
+//                 <option value="">Select Option</option>
+//                 <option value="juice">Juice</option>
+//                 <option value="random">lskmfkd</option>
+//                 <option value="apple">Apple</option>
+//             </select>
+
+
+//             {selectedProduct && (
+//                 <div>
+//                     <p>Product Name: {selectedProduct.name}</p>
+//                     <p>Product ID: {selectedProduct.id}</p>
+//                     <p>Product Price: {selectedProduct.price}</p>
+//                     {/* <img src={selectedProduct.image} /> */}
+//                 </div>
+//             )}
+//         </>
+//     );
+// }
+
+
+
+
+
+
+
+
+//----------------------------DrpDown Categories--------------------------------
+// import { Heading } from "./LABDROPDOWN/Heading";
+// import { useState } from "react";
+
+// export function App() {
+//     const [selectedCategory, setSelectedCategory] = useState("");
+
+//     const products = {
+//         fruit: [
+//             { id: 1, name: "Juice", price: "rs. 200", image: "juice.jpeg" },
+//             { id: 2, name: "Banana", price: "rs. 100", image: "banana.jpeg" },
+//             { id: 3, name: "Apple", price: "rs. 200", image: "apple.jpeg" }
+//         ],
+
+//         playing: [
+//             { id: 4, name: "Football", price: "rs. 500", image: "football.jpeg" },
+//             { id: 5, name: "Cricket Bat", price: "rs. 1500", image: "bat.jpeg" }
+//         ],
+//         nonVeg: [
+//             { id: 6, name: "Chicken", price: "rs. 400", image: "chicken.jpeg" },
+//             { id: 7, name: "Fish", price: "rs. 350", image: "fish.jpeg" }
+//         ],
+//         Veg: [
+//             {id:8, name:"Panir", price:"rs. 200"},
+//             {id:9, name:"Vegetable", price: "rs. 100"},
+//         ]
+//     };
+
+
+//     return (
+//         <>
+//             <Heading />
+//             <select onChange={(e) => setSelectedCategory(e.target.value)}>
+//                 <option value="">Select Category</option>
+//                 {Object.keys(products).map((category) => (
+//                     <option key={category} value={category}>{category}</option>
+//                 ))}
+//             </select>
+
+//             {selectedCategory && (
+//                 <div>
+//                     {products[selectedCategory].map((product) => (
+//                         <div key={product.id}>
+//                             <p>{product.name}</p>
+//                             <p>{product.price}</p>
+//                             <img src={product.image} alt={product.name} width="100" />
+//                         </div>
+//                     ))}
+//                 </div>
+//             )}
+//         </>
+//     );
+// };
+
+
+
+
+
 
 
