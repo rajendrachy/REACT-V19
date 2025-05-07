@@ -374,8 +374,9 @@
 //---------------------Registration Form---------------------------
 //YT -> https://www.youtube.com/watch?v=0_mxKjl9Emc
 
-// import { Heading } from "./basicFormHandling/Heading"
+// import { Heading } from "./basicFormHandling/Heading.jsx"
 // import React from "react";
+// import { use } from "react";
 // import { useState } from "react";
 
 // export function App() {
@@ -423,6 +424,91 @@
 //  </>
 //     )
 // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//--practicing----
+
+// export function App() {
+//    const[name, setName] = useState("");
+//    const[interest, setInterest] = useState("");
+//    const[che, setChe] = useState(false);
+//    const[submitData, setSubmitData] = useState([]);
+
+
+//    function formHandle(e) {
+//         e.preventDefault();
+     
+//   console.log(name, interest, che);
+// setSubmitData([...submitData ,{name, interest, che}]);
+
+//     }
+//     return (
+//         <>
+//         <Heading />
+
+//         <form onSubmit={formHandle}>
+//             Name: <input type="text" placeholder="Enter your name" onChange={(e) => setName(e.target.value)}/>
+// <br /><br />
+//             <select onChange={(e) => setInterest(e.target.value)}>
+//                <option>DC</option>
+//                <option>ML</option>
+//                <option>DSA</option>
+//             </select>
+
+
+// <br /><br />
+//             <input type="checkbox" onChange={(e) => setChe(e.target.checked)}/><span>Accepted...</span>
+//         <br /><br />
+//         <button type="submit">Submit</button>
+
+//         </form>        
+
+// {submitData.length > 0  && (
+//    <table border="1">
+//     <thead>
+//     <tr>
+//       <th>Name</th>
+//       <th>Interest</th>
+//       <th>Checked</th>
+//     </tr>
+//     </thead>
+
+// <tbody>
+//    {submitData.map((data, idx) => (
+//      <tr key={idx}>
+//         <td> {data.name}</td>
+//         <td>{data.interest}</td>
+//         <td>{data.che ? "yes" : "No"}</td>
+//      </tr>
+//    ))}
+// </tbody>
+
+//    </table>
+// )}
+// </>
+// )
+// }
+
+
+
+
+
+
+
+
 
 
 
@@ -581,50 +667,50 @@
 
 
 
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
 
-export function App() {
-  const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("");
+// export function App() {
+//   const [products, setProducts] = useState([]);
+//   const [categories, setCategories] = useState([]);
+//   const [selectedCategory, setSelectedCategory] = useState("");
 
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-        const uniqueCategories = [...new Set(data.map((item) => item.category))];
-        setCategories(uniqueCategories);
-      });
-  }, []);
+//   useEffect(() => {
+//     fetch("https://fakestoreapi.com/products")
+//       .then((res) => res.json())
+//       .then((data) => {
+//         setProducts(data);
+//         const uniqueCategories = [...new Set(data.map((item) => item.category))];
+//         setCategories(uniqueCategories);
+//       });
+//   }, []);
 
-  const filteredProducts = selectedCategory
-    ? products.filter((product) => product.category === selectedCategory)
-    : products;
+//   const filteredProducts = selectedCategory
+//     ? products.filter((product) => product.category === selectedCategory)
+//     : products;
 
-  return (
-    <div>
-      <h2>Product Store</h2>
-      <select onChange={(e) => setSelectedCategory(e.target.value)}>
-        <option value="">All Categories</option>
-        {categories.map((category, index) => (
-          <option key={index} value={category}>{category}</option>
-        ))}
-      </select>
+//   return (
+//     <div>
+//       <h2>Product Store</h2>
+//       <select onChange={(e) => setSelectedCategory(e.target.value)}>
+//         <option value="">All Categories</option>
+//         {categories.map((category, index) => (
+//           <option key={index} value={category}>{category}</option>
+//         ))}
+//       </select>
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", marginTop: "20px" }}>
-        {filteredProducts.map((product) => (
-          <div key={product.id} style={{ border: "1px solid #ccc", padding: "10px", width: "200px" }}>
-            <img src={product.image} alt={product.title} width="100" />
-            <h4>{product.title}</h4>
-            <p>Category: {product.category}</p>
-            <p>Price: ${product.price}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+//       <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", marginTop: "20px" }}>
+//         {filteredProducts.map((product) => (
+//           <div key={product.id} style={{ border: "1px solid #ccc", padding: "10px", width: "200px" }}>
+//             <img src={product.image} alt={product.title} width="100" />
+//             <h4>{product.title}</h4>
+//             <p>Category: {product.category}</p>
+//             <p>Price: ${product.price}</p>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
 
 
 
@@ -841,6 +927,7 @@ export function App() {
 //     };
 
 
+
 //     const selectedProduct = products[selectedValue];
 
 
@@ -934,3 +1021,48 @@ export function App() {
 
 
 
+
+
+
+
+
+
+
+
+
+//-----------------Start----------------------------
+//---------------Router---------------------------
+import { About } from "./ROUTER WITH CODE STEP BY/About";
+import { Home } from "./ROUTER WITH CODE STEP BY/Home";
+import { Text } from "./ROUTER WITH CODE STEP BY/Text";
+import { NavBar } from "./ROUTER WITH CODE STEP BY/NavBar";
+
+import { Route, Routes, Link, Navigate } from "react-router";
+import { PageNotFound } from "./ROUTER WITH CODE STEP BY/PageNotFound";
+import { College } from "./ROUTER WITH CODE STEP BY/College";
+
+export function App() {
+    return (
+        <>
+        {/* <NavBar /> */}
+
+
+            <Routes>
+        <Route element={<NavBar/>}>
+            <Route path="/about" element={<About/>}/>
+            <Route path="/" element={<Home />} />
+            <Route path="/text" element={<Text/>}/>
+        </Route>
+               
+                <Route path="/college" element={<College/>}/>
+                <Route path="/*" element={<PageNotFound/>} />
+                <Route path="/*" element={<Navigate to="/login"/> }/>
+            </Routes>
+        </>
+    );
+}
+
+
+// {/* <Route path="/*" element={<h1>Page Not Fount</h1>}></Route> */} -> This is always at the end and 404 error display if the page not found
+  
+//------------End-----------------------

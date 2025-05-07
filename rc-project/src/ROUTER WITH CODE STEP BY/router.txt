@@ -1,0 +1,35 @@
+-> npm install react-router
+-> npm install react-router-dom
+
+
+---------install react router----------
+// convert react v18 to v19
+-> npm i react-dom@rc
+-> npm i react@rc
+-> then, npm i react-router // error in the react version 19
+-> for this use -> npm i react-router --legacy-peer-deps or --force
+
+
+
+
+
+
+
+Here's a clear comparison between Link and NavLink in React Router:
+-> Link is used for basic navigation between routes without reloading the page. It does not apply active styles.
+NavLink also navigates, but it adds styling or classes automatically when the link matches the current URL—perfect 
+for active menu highlights. Use Link for general links, and NavLink when you want to style the currently active
+ route (like in a navbar).
+
+
+
+
+
+
+ 🧭 What is BrowserRouter in React?
+BrowserRouter is a router component from the react-router-dom library that enables
+navigation in a React application using the HTML5 history API.
+
+ In Simple Terms:
+It wraps your entire React app.
+

@@ -1,5 +1,5 @@
-export function Heading() {
-    return (
-        <h2>Dropdown details</h2>
-    )
-}
+// export function Heading() {
+//     return (
+//         <h2>Dropdown details</h2>
+//     )
+// }

@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(128, 128, 128, 0.788);
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    width: 300px;
+    padding: 10px;
+    margin: auto;
+    margin-right: 10px;
+    justify-content: space-between;
+}
+
+.header ul li {
+    padding: 10px;
+
+}
+
+.header link h2 {
+    margin: 0;
+}
+
+.header .link {
+    text-decoration: none;
+}
+
+.college .link {
+    text-decoration: none;
+    font-size: 20px;
+    margin: 10px;
+}
